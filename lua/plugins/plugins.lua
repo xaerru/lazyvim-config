@@ -95,6 +95,9 @@ return {
         "c",
         "cpp",
       })
+    opts.indent = {
+        enable = false,
+    }
     end,
   },
 
