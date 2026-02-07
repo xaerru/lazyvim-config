@@ -44,21 +44,8 @@ return {
           -- Ensure mason installs the server
           clangd = {
               keys = {
-              { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+                { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
               },
-              root_dir = function(fname)
-              return require("lspconfig.util").root_pattern(
-                  "Makefile",
-                  "configure.ac",
-                  "configure.in",
-                  "config.h.in",
-                  "meson.build",
-                  "meson_options.txt",
-                  "build.ninja"
-              )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
-                  fname
-              ) or require("lspconfig.util").find_git_ancestor(fname)
-              end,
               capabilities = {
               offsetEncoding = { "utf-16" },
               },
@@ -94,6 +81,10 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "c",
         "cpp",
+        "java",
+        "nix",
+        "llvm",
+        "mlir"
       })
     opts.indent = {
         enable = false,
@@ -102,7 +93,7 @@ return {
   },
 
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     recommended = true,
     keys = function(_, keys)
       local opts = LazyVim.opts("mini.surround")
@@ -207,7 +198,7 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "stylua",

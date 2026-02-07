@@ -7,3 +7,9 @@ vim.opt.tabstop = 4
 vim.opt.smarttab = true
 
 vim.g.autoformat = false
+
+vim.filetype.add({
+  extension = {
+    cir = "mlir",
+  },
+})
