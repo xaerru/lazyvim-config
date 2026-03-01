@@ -84,7 +84,8 @@ return {
         "java",
         "nix",
         "llvm",
-        "mlir"
+        "mlir",
+        "tablegen"
       })
     opts.indent = {
         enable = false,
