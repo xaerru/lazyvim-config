@@ -85,7 +85,8 @@ return {
         "nix",
         "llvm",
         "mlir",
-        "tablegen"
+        "tablegen",
+        "ocaml"
       })
     opts.indent = {
         enable = false,
@@ -157,6 +158,13 @@ return {
       filetype = {
         c = "gcc -lm $file && ./a.out && rm a.out",
         cpp = "g++ -std=c++17 $file && ./a.out && rm a.out",
+        java = {
+            "cd $dir &&",
+            "javac $fileName &&",
+            "java $fileNameWithoutExt"
+        },
+        ocaml = "ocamlc $file && ./a.out && rm a.out",
+        haskell = "ghc $file && ./$fileNameWithoutExt"
       },
     },
   },
